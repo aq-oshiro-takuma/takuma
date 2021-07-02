@@ -1,1 +1,1 @@
-# takuma
+# takuma Oshiro

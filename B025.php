@@ -5,7 +5,8 @@ $weed = array_fill(0, $grass, 0);
 
 for ($i = 0; $i < $rabbit; $i++) {
     $rabbitNumber[$i] = trim(fgets(STDIN)) - 1;
-    $weed[$rabbitNumber[$i]] = 1;
+    $number = $rabbitNumber[$i];
+    $weed[$number] = 1;
 }
 
 for ($i = 0; $i < $jump; $i++) {
@@ -15,7 +16,8 @@ for ($i = 0; $i < $jump; $i++) {
             echo $target . PHP_EOL;
             if ($weed[$target] === 0) {
                 $weed[$target] = 1;
-                $weed[$rabbitNumber[$j]] = 0;
+                $tmp = $rabbitNumber[$j];
+                $weed[$tmp] = 0;
                 break;
             }
         }

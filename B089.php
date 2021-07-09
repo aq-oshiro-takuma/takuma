@@ -41,4 +41,5 @@ function slantingCompare(string $word, array $string, int $x, int $y): int
         }
     }
     return 1;
+
 }

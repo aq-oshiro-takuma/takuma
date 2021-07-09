@@ -30,12 +30,25 @@ for ($i = 0; $i < $inputSeconds; $i++) {
 
 echo $sum, PHP_EOL;
 
-
+/**
+ * @return string
+ *標準入力
+ */
 function getStdin(): string
 {
     return trim(fgets(STDIN));
-}//標準入力
+}
 
+/**
+ * @param array $cleanPlace
+ * @param int $x
+ * @param int $y
+ * @param int $height
+ * @param int $width
+ * @param int $direction
+ * @return int
+ * 次の掃除場所が壁やすでに掃除した場所と衝突した場合、方向転換する関数
+ */
 function impact(array $cleanPlace, int $x, int $y, int $height, int $width, int $direction): int
 {
     $direction = $direction % 4;
@@ -60,8 +73,14 @@ function impact(array $cleanPlace, int $x, int $y, int $height, int $width, int 
         return $direction + 1;
     }
     return $direction;
-}//壁や掃除した場所に衝突する場合方向転換する関数
+}
 
+/**
+ * @param array $prevCleanPlace
+ * @param int $direction
+ * @return array
+ * 次の掃除場所がどこか調べる関数
+ */
 function decideNext(array $prevCleanPlace, int $direction): array
 {
     $direction = $direction % 4;
@@ -75,4 +94,4 @@ function decideNext(array $prevCleanPlace, int $direction): array
         case 3:
             return [$prevCleanPlace[0] - 1, $prevCleanPlace[1]];
     }
-}//次の掃除場所がどこか調べる関数
+}

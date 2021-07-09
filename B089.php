@@ -12,11 +12,11 @@ for ($i = 0; $i < $wordNumber; $i++) {
 }
 
 for ($i = 0; $i < $wordNumber; $i++) {
-    for ($j = 0; $j < $row; $j++) {
-        for ($k = 0; $k < $row; $k++) {
-            $result = slantingCompare($word[$i], $string, $j, $k);
+    for ($startY = 0; $startY < $row; $startY++) {
+        for ($startX = 0; $startX < $row; $startX++) {
+            $result = slantingCompare($word[$i], $string, $startY, $startX);
             if ($result === 1) {
-                $answer[$i] = $k + 1 . ' ' . $j + 1;
+                $answer[$i] = $startX + 1 . ' ' . $startY + 1;
                 break;
             }
         }
@@ -27,12 +27,23 @@ for ($i = 0; $i < $wordNumber; $i++) {
     echo $answer[$i], PHP_EOL;
 }
 
-
+/**
+ * @return string
+ * 標準入力を行う関数
+ */
 function getStdin(): string
 {
     return trim(fgets(STDIN));
 }
 
+/**
+ * @param string $word
+ * @param array $string
+ * @param int $x
+ * @param int $y
+ * @return int
+ * $x,$yをスタート位置としその地点から斜め右下に読み進めたとき、$wordと同じ文字列になれば１を返す関数
+ */
 function slantingCompare(string $word, array $string, int $x, int $y): int
 {
     $len = strlen($word);

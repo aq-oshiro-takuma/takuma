@@ -27,6 +27,7 @@ for ($i = 0; $i < $wordNumber; $i++) {
     echo $answer[$i], PHP_EOL;
 }
 
+
 function getStdin(): string
 {
     return trim(fgets(STDIN));
@@ -41,5 +42,4 @@ function slantingCompare(string $word, array $string, int $x, int $y): int
         }
     }
     return 1;
-
 }
